@@ -1,11 +1,12 @@
 import java.io.*;
 import java.util.*;
+import java.util.Random;
 
 /**
  * A class for creating log files of random data.
  * 
- * @author David J. Barnes and Michael Kölling
- * @version    2016.02.29
+ * @author Matt Romond
+ * @version    2024.03.23
  */
 public class LogfileCreator
 {
@@ -55,12 +56,10 @@ public class LogfileCreator
      * Create a single (random) entry for a log file.
      * @return A log entry containing random data.
      */
-    public LogEntry createEntry()
-    {
-        int year = 2016;
+    public LogEntry createEntry() {
+        int year = 2015 + rand.nextInt(5); 
         int month = 1 + rand.nextInt(12);
-        // Avoid the complexities of days-per-month.
-        int day = 1 + rand.nextInt(28);
+        int day = 1 + rand.nextInt(28); 
         int hour = rand.nextInt(24);
         int minute = rand.nextInt(60);
         return new LogEntry(year, month, day, hour, minute);
